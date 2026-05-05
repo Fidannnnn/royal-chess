@@ -4,7 +4,6 @@
 #include <algorithm>
 #include <climits>
 
-// =============================================================================
 //?  PIECE-SQUARE TABLES
 //
 //  Positional bonuses in centipawns, from White's perspective (row 0 = rank 8).
@@ -12,7 +11,6 @@
 //  in pst() so both sides evaluate "towards their own back rank" consistently.
 //
 //?  Adapted from the Chess Programming Wiki starter tables.
-// =============================================================================
 
 static const int PST_PAWN[8][8] = {
     {  0,  0,  0,  0,  0,  0,  0,  0},
