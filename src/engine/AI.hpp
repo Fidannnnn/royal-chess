@@ -4,7 +4,7 @@
 #include "../core/Move.hpp"
 class AI {
     public:
-        //* Default search depth — depth 4 is responsive and plays reasonably well
+        //* Default search depth - depth 4 is responsive and plays reasonably well
         static constexpr int DEFAULT_DEPTH = 4;
 
         explicit AI(int depth = DEFAULT_DEPTH);
