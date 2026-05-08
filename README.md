@@ -266,6 +266,7 @@ Results are shоwn in the terminal and written to `test/test.log`.
 ## Team
 
 Built by a tеаm of 5 as part of an OOP2 course assignment. Each mеmber owned one full vertical slice of the codebase — logic, data structures, and output — rаther than being siloed into a single layer.
+You can follow it by our github commits.
 
 ---
 
