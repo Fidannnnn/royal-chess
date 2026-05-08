@@ -9,13 +9,11 @@
 #include <chrono>
 #include <string>
 
-// =============================================================================
 //  GAME  —  Implementation
-// =============================================================================
 
 Game::Game() : m_ai(AI::DEFAULT_DEPTH) {}
 
-// -- Menu ---------------------------------------------------------------------
+// Menu 
 
 char Game::showMenu() {
     std::cout << "\n"
@@ -39,7 +37,7 @@ char Game::showMenu() {
     return ' ';  // unknown — caller re-shows the menu
 }
 
-// -- Helper: build render options for current frame ---------------------------
+// Helper: build render options for current frame 
 
 RenderOptions Game::buildRenderOptions(const GameState& gs, bool inCheck) {
     RenderOptions opt;
@@ -53,7 +51,7 @@ RenderOptions Game::buildRenderOptions(const GameState& gs, bool inCheck) {
     return opt;
 }
 
-// -- Helper: captured piece tracking -----------------------------------------
+// Helper: captured piece tracking
 
 void Game::trackCapture(Piece captured, bool capturedIsWhite,
                          std::vector<std::string>& capturedW,
@@ -66,7 +64,7 @@ void Game::trackCapture(Piece captured, bool capturedIsWhite,
         capturedB.push_back(std::string(PIECE_UNICODE[captured]));
 }
 
-// -- AI turn ------------------------------------------------------------------
+// AI turn 
 
 Move Game::doAiTurn(GameState& gs,
                     std::vector<std::string>& capturedB,
@@ -102,7 +100,7 @@ Move Game::doAiTurn(GameState& gs,
     return aiMove;
 }
 
-// -- Human turn ---------------------------------------------------------------
+// Human turn 
 
 bool Game::doHumanTurn(GameState& gs,
                         const std::vector<Move>& legal,
@@ -166,7 +164,7 @@ bool Game::doHumanTurn(GameState& gs,
     return true;
 }
 
-// -- Game loop ----------------------------------------------------------------
+// Game loop 
 
 void Game::playGame(bool aiMode) {
     GameState gs;
@@ -224,7 +222,7 @@ void Game::playGame(bool aiMode) {
     Terminal::showCursor();
 }
 
-// -- Entry point --------------------------------------------------------------
+// Entry point 
 
 void Game::run() {
     while (true) {

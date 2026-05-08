@@ -4,7 +4,6 @@
 #include "Move.hpp"
 #include <vector>
 
-// =============================================================================
 //  GAMESTATE
 //
 //  Composes a Board with the turn-level metadata needed to run a full game:
@@ -27,7 +26,6 @@
 //  NOT copied into AI-search states — the search doesn't need it and copying
 //  a growing vector at every node would be expensive. History is only
 //  maintained in the live game state inside the Game loop.
-// =============================================================================
 
 class GameState {
 public:
@@ -35,8 +33,8 @@ public:
     // white to move. Call this once at the beginning of each game.
     GameState();
 
-    // -- Board access ---------------------------------------------------------
-
+    // Board access 
+    
     // Read-only access to the underlying board
     const Board& board() const;
 
@@ -44,7 +42,7 @@ public:
     // The AI and MoveGenerator only ever receive const references.
     Board& board();
 
-    // -- Turn state -----------------------------------------------------------
+    // Turn state 
 
     bool isWhiteTurn() const;
 
@@ -55,8 +53,8 @@ public:
     // Currently tracked but not enforced (50-move rule is not implemented).
     int halfMoveClock() const;
 
-    // -- Move application -----------------------------------------------------
-
+    // Move application 
+    
     /*
      * Returns a new GameState with the move applied.
      * Delegates board mutation to Board::applyMove(), then advances:
@@ -70,7 +68,7 @@ public:
      */
     GameState applyMove(const Move& m) const;
 
-    // -- Move history ---------------------------------------------------------
+    // Move history 
     // Only used by the live game state — never populated during AI search.
 
     void pushHistory(const Move& m);

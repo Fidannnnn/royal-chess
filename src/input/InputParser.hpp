@@ -5,7 +5,6 @@
 #include <string>
 #include <vector>
 
-// =============================================================================
 //  INPUTPARSER
 //
 //  Converts raw user input strings into validated Move structs.
@@ -24,13 +23,11 @@
 //  Keeping the two stages separate makes both independently testable and
 //  lets the Game loop give the user a precise error message for each failure
 //  case ("bad format" vs "illegal move").
-// =============================================================================
 
 class InputParser {
 public:
     InputParser() = delete;
 
-    // -------------------------------------------------------------------------
     //  parse()
     //
     //  Parses a raw input string into a Move. Strips all whitespace first.
@@ -48,10 +45,10 @@ public:
     //
     //  Does NOT validate whether the move is legal — that's matchLegal()'s job.
     //  Returns false if the string cannot be parsed into any recognized format.
-    // -------------------------------------------------------------------------
+    
     static bool parse(const std::string& input, Move& out);
 
-    // -------------------------------------------------------------------------
+
     //  matchLegal()
     //
     //  Finds the legal move that corresponds to `parsed` in the given list.
@@ -64,7 +61,6 @@ public:
     //      the side to move. If they didn't (omitted suffix), defaults to queen.
     //
     //  Returns false if no legal move matches the parsed coordinates.
-    // -------------------------------------------------------------------------
     static bool matchLegal(const std::vector<Move>& legal,
                            const Move& parsed,
                            bool whiteTurn,

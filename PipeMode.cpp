@@ -8,9 +8,7 @@
 #include <iostream>
 #include <string>
 
-// =============================================================================
 //  PIPEMODE  —  Implementation
-// =============================================================================
 
 static std::string pieceStr(Piece p) {
     if (isEmpty(p)) return "";

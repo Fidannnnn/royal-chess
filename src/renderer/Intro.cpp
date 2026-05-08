@@ -5,9 +5,7 @@
 #include <iostream>
 #include <string>
 
-// =============================================================================
 //  INTRO  —  Implementation
-// =============================================================================
 
 void Intro::drawTitle() {
     // ASCII block-letter art for "ROYAL CHESS", printed line by line.

@@ -4,7 +4,7 @@
 #include <string>
 #include <string_view>
 
-// =============================================================================
+
 //  TERMINAL
 //
 //  Thin wrapper around the raw ANSI escape sequences that control the terminal
@@ -19,7 +19,6 @@
 //  Nothing outside this class should write raw cursor/screen escape codes.
 //  Color escape codes (CLR_*) live in Color.hpp and are used by the renderer
 //  directly — those are data, not control sequences.
-// =============================================================================
 
 class Terminal {
 public:
@@ -39,13 +38,13 @@ public:
     // Restores the cursor — always call this before the program exits
     static void showCursor();
 
-    // -- Timing ---------------------------------------------------------------
+    // Timing 
 
     // Blocks for the given number of milliseconds.
     // Used by the intro animation for paced output.
     static void sleepMs(int ms);
 
-    // -- Text output ----------------------------------------------------------
+    // Text output
 
     /*
      * Prints `text` centered within `width` terminal columns.

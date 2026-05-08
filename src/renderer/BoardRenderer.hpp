@@ -5,7 +5,6 @@
 #include <string>
 #include <vector>
 
-// =============================================================================
 //  BOARDRENDERER
 //
 //  Owns all terminal output related to the chess board: the board grid,
@@ -19,15 +18,12 @@
 //  All methods are static. draw() is the only public entry point;
 //  everything else is a private helper that breaks the render into
 //  logical sections.
-// =============================================================================
 
-// -----------------------------------------------------------------------------
 //  RenderOptions
 //
 //  Carries the per-frame highlight state that the Game loop computes
 //  before each call to draw(). Kept as a plain struct — it's pure data
 //  passed from the game loop to the renderer with no behavior of its own.
-// -----------------------------------------------------------------------------
 struct RenderOptions {
     int selR = -1, selC = -1;                        // currently selected square (-1 = none)
     std::vector<std::pair<int,int>> validMoves;       // legal destinations for the selected piece
@@ -38,7 +34,6 @@ class BoardRenderer {
 public:
     BoardRenderer() = delete;
 
-    // -------------------------------------------------------------------------
     //  draw()
     //
     //  Clears the screen and renders the full board UI:
@@ -56,7 +51,6 @@ public:
     //    capturedB  — black pieces taken by white (displayed next to white's side)
     //    statusMsg  — pre-colored status string shown in the side panel
     //    aiMode     — controls "AI Engine" vs "Player 2" label
-    // -------------------------------------------------------------------------
     static void draw(const GameState& gs,
                      const RenderOptions& opt,
                      const std::vector<std::string>& capturedW,

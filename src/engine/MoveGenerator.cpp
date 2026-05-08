@@ -3,9 +3,7 @@
 
 #include <algorithm>
 
-// =============================================================================
 //  MOVEGENERATOR  —  Implementation
-// =============================================================================
 
 // Direction tables — declared static so they're shared across calls
 // without repeated stack allocation. All offsets are (rowDelta, colDelta).
@@ -18,9 +16,7 @@ static const int KNIGHT_J   [8][2] = {{ 2, 1},{ 2,-1},{-2, 1},{-2,-1},
 static const int KING_J     [8][2] = {{ 1, 0},{-1, 0},{ 0, 1},{ 0,-1},
                                        { 1, 1},{ 1,-1},{-1, 1},{-1,-1}};
 
-// =============================================================================
 //  Private helpers
-// =============================================================================
 
 /*
  * Appends all pseudo-legal pawn moves from (r,c) to `moves`.
@@ -164,9 +160,7 @@ void MoveGenerator::addCastlingMoves(const Board& b, bool forWhite,
     }
 }
 
-// =============================================================================
 //  Public interface
-// =============================================================================
 
 std::vector<Move> MoveGenerator::pseudoMoves(const GameState& gs, bool forWhite) {
     std::vector<Move> moves;

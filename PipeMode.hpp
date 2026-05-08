@@ -1,6 +1,5 @@
 #pragma once
 
-// =============================================================================
 //  PIPEMODE
 //
 //  Non-interactive test mode activated when stdin is a pipe (not a terminal).
@@ -20,7 +19,6 @@
 //    1-0       checkmate, black to move has no moves
 //    0-1       checkmate, white to move has no moves
 //    1/2-1/2   stalemate
-// =============================================================================
 
 class PipeMode {
 public:

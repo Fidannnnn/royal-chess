@@ -5,11 +5,9 @@
 #include <thread>
 #include <chrono>
 
-// =============================================================================
 //  TERMINAL  —  Implementation
-// =============================================================================
 
-// -- Screen control -----------------------------------------------------------
+// Screen control 
 
 void Terminal::clearScreen() {
     // ESC[2J  — erase entire display
@@ -35,13 +33,13 @@ void Terminal::showCursor() {
     std::cout << "\033[?25h";
 }
 
-// -- Timing -------------------------------------------------------------------
+// Timing 
 
 void Terminal::sleepMs(int ms) {
     std::this_thread::sleep_for(std::chrono::milliseconds(ms));
 }
 
-// -- Text output --------------------------------------------------------------
+// Text output 
 
 void Terminal::printCentered(const std::string& text,
                               int width,

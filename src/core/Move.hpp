@@ -3,7 +3,6 @@
 #include "Piece.hpp"
 #include <string>
 
-// =============================================================================
 //  MOVE
 //
 //  Represents a single half-move (ply). Stores source and destination squares
@@ -19,7 +18,6 @@
 //      out would add indirection for no benefit.
 //    - The score field is a scratch space used only by the AI's move-ordering
 //      step. It has no meaning outside the search.
-// =============================================================================
 
 struct Move {
     int fromR = 0, fromC = 0;  // source square (row 0 = rank 8, row 7 = rank 1)
@@ -36,8 +34,7 @@ struct Move {
     // by the value of the victim so they bubble to the front of the list.
     // Not meaningful outside the AI search.
     int score = 0;
-
-    // -------------------------------------------------------------------------
+    //
     //  toAlgebraic()
     //
     //  Serializes the move to long algebraic notation (coordinate notation):
@@ -46,7 +43,6 @@ struct Move {
     //
     //  Rows are stored internally as 0=rank8 .. 7=rank1, so rank is computed
     //  as (7 - row) when converting to the 1-based display rank.
-    // -------------------------------------------------------------------------
     std::string toAlgebraic() const {
         std::string s;
         s += static_cast<char>('a' + fromC);

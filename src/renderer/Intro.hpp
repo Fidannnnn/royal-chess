@@ -1,6 +1,5 @@
 #pragma once
 
-// =============================================================================
 //  INTRO
 //
 //  Plays the animated title screen shown once at program startup.
@@ -8,7 +7,6 @@
 //  can be skipped or replaced without touching anything else.
 //
 //  All methods are static — Intro holds no state and is never instantiated.
-// =============================================================================
 
 class Intro {
 public:

@@ -7,7 +7,6 @@
 #include <string>
 #include <vector>
 
-// =============================================================================
 //  GAME
 //
 //  Owns the main game loop and the top-level menu. Wires together every other
@@ -27,7 +26,6 @@
 //    - Anything inside the board (that's Board / GameState)
 //    - Move legality (that's MoveGenerator)
 //    - Rendering details (that's BoardRenderer)
-// =============================================================================
 
 class Game {
 public:

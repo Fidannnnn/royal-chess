@@ -3,9 +3,7 @@
 #include <algorithm>
 #include <cctype>
 
-// =============================================================================
 //  INPUTPARSER  —  Implementation
-// =============================================================================
 
 bool InputParser::parse(const std::string& input, Move& out) {
     // Strip all whitespace so "e2 e4" and "e2e4" both work
@@ -14,7 +12,7 @@ bool InputParser::parse(const std::string& input, Move& out) {
 
     if (s.empty()) return false;
 
-    // -- Castling shorthands --------------------------------------------------
+    // Castling shorthands 
     // Only the destination column is recorded here — the king's row is filled
     // in by matchLegal() once we know whose turn it is.
     if (s == "O-O"   || s == "0-0"   || s == "oo")  {
@@ -30,7 +28,7 @@ bool InputParser::parse(const std::string& input, Move& out) {
         return true;
     }
 
-    // -- Long algebraic notation ----------------------------------------------
+    // Long algebraic notation 
     // Minimum length is 4 characters: fromFile + fromRank + toFile + toRank
     if (s.size() < 4) return false;
 
@@ -48,7 +46,7 @@ bool InputParser::parse(const std::string& input, Move& out) {
     out.fromR = fr;  out.fromC = fc;
     out.toR   = tr;  out.toC   = tc;
 
-    // -- Optional promotion suffix (5th character) ----------------------------
+    // Optional promotion suffix (5th character) 
     // We store white-side piece values here; matchLegal() recolors as needed.
     // 'k' is accepted as an alias for knight since 'n' can be ambiguous for
     // players coming from descriptive notation.
@@ -66,7 +64,7 @@ bool InputParser::matchLegal(const std::vector<Move>& legal,
                              const Move& parsed,
                              bool whiteTurn,
                              Move& found) {
-    // -- Castling -------------------------------------------------------------
+    // Castling 
     // Match by destination column (6 = kingside, 2 = queenside) and the
     // king's starting row for the side to move.
     if (parsed.isCastle) {
@@ -80,7 +78,7 @@ bool InputParser::matchLegal(const std::vector<Move>& legal,
         return false;
     }
 
-    // -- Normal move ----------------------------------------------------------
+    // Normal move 
     // Match by all four coordinates. The first legal move that agrees on
     // from/to is the one we want — there can't be two legal moves between
     // the same squares unless they differ only by promotion piece, and the

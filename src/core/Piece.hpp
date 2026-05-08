@@ -2,7 +2,6 @@
 
 #include <string>
 
-// =============================================================================
 //  PIECE DEFINITIONS
 //
 //  Pieces are encoded as a plain enum so they can be used as array indices
@@ -11,7 +10,6 @@
 //  This layout has two useful properties:
 //    - Color is determined by a single range check (no bit flags needed)
 //    - Converting between sides is just arithmetic: black = white + 6
-// =============================================================================
 
 enum Piece {
     EMPTY    = 0,
@@ -21,10 +19,8 @@ enum Piece {
     B_ROOK   = 10, B_QUEEN = 11, B_KING  = 12
 };
 
-// =============================================================================
 //  DATA TABLES
 //  Indexed by Piece value (0–12), so lookups are a single array access.
-// =============================================================================
 
 // Both sides share the same outline glyphs — color is handled by the renderer.
 // Filled black glyphs (♟♞ etc.) render inconsistently across terminals,
@@ -57,13 +53,11 @@ inline const int PIECE_VALUE[] = {
     100, 320, 330, 500, 900, 20000    // black
 };
 
-// =============================================================================
 //  HELPER PREDICATES
 //
 //  Kept as free functions rather than methods because Piece is a plain enum,
 //  not a class. Marking them inline avoids ODR violations across translation
 //  units that include this header.
-// =============================================================================
 
 // Returns true if p belongs to the white side
 inline bool isWhite(Piece p) { return p >= W_PAWN && p <= W_KING; }

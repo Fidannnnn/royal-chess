@@ -5,11 +5,9 @@
 #include <algorithm>
 #include <string>
 
-// =============================================================================
 //  BOARDRENDERER  —  Implementation
-// =============================================================================
 
-// -- squareBG -----------------------------------------------------------------
+// squareBG
 
 std::string_view BoardRenderer::squareBG(const GameState& gs, int r, int c,
                                           const RenderOptions& opt) {
@@ -28,7 +26,7 @@ std::string_view BoardRenderer::squareBG(const GameState& gs, int r, int c,
     return ((r + c) % 2 == 0) ? CLR_LIGHT_SQ : CLR_DARK_SQ;
 }
 
-// -- drawTitle ----------------------------------------------------------------
+// drawTitle 
 
 void BoardRenderer::drawTitle() {
     std::cout << CLR_BORDER << BOLD
@@ -39,7 +37,7 @@ void BoardRenderer::drawTitle() {
               << RESET << "\n\n";
 }
 
-// -- drawFileLabels -----------------------------------------------------------
+// drawFileLabels 
 
 void BoardRenderer::drawFileLabels() {
     // 4-char indent aligns with rank-number (3 chars) + border pipe (1 char)
@@ -48,7 +46,7 @@ void BoardRenderer::drawFileLabels() {
     std::cout << RESET << "\n";
 }
 
-// -- drawPanelRow -------------------------------------------------------------
+// drawPanelRow -------------------------------------------------------------
 
 void BoardRenderer::drawPanelRow(int r, const GameState& gs,
                                   const std::vector<std::string>& capturedW,
@@ -121,7 +119,7 @@ void BoardRenderer::drawPanelRow(int r, const GameState& gs,
     }
 }
 
-// -- drawRow ------------------------------------------------------------------
+// drawRow 
 
 void BoardRenderer::drawRow(int r, const GameState& gs, const RenderOptions& opt,
                              const std::vector<std::string>& capturedW,
@@ -154,7 +152,7 @@ void BoardRenderer::drawRow(int r, const GameState& gs, const RenderOptions& opt
     std::cout << "\n";
 }
 
-// -- drawHistory --------------------------------------------------------------
+// drawHistory 
 
 void BoardRenderer::drawHistory(const GameState& gs) {
     const auto& hist = gs.moveHistory();
@@ -173,7 +171,7 @@ void BoardRenderer::drawHistory(const GameState& gs) {
     std::cout << "\n";
 }
 
-// -- draw (public entry point) ------------------------------------------------
+// draw (public entry point) 
 
 void BoardRenderer::draw(const GameState& gs,
                           const RenderOptions& opt,

@@ -3,7 +3,6 @@
 #include "../core/Piece.hpp"
 #include "../core/Move.hpp"
 
-// =============================================================================
 //  BOARD
 //
 //  Owns the 8×8 grid of pieces and the applyMove() logic that mutates it.
@@ -24,7 +23,6 @@
 //  This is the key design choice that makes the AI search straightforward:
 //  each node in the tree gets its own Board copy with no undo mechanism needed.
 //  The compiler's copy elision (NRVO) keeps this efficient in practice.
-// =============================================================================
 
 class Board {
 public:
@@ -34,7 +32,7 @@ public:
     // Sets the board to the standard chess starting position
     void reset();
 
-    // -- Square access --------------------------------------------------------
+    // Square access 
 
     // Returns the piece on the given square (bounds-checked in debug builds)
     Piece at(int row, int col) const;
@@ -45,7 +43,7 @@ public:
     // Returns true if (row, col) is within the 8×8 grid
     static bool inBounds(int row, int col);
 
-    // -- Move application -----------------------------------------------------
+    // Move application 
 
     /*
      * Returns a new Board with the move applied. Does not validate legality —
@@ -59,7 +57,7 @@ public:
      */
     Board applyMove(const Move& m) const;
 
-    // -- State accessors ------------------------------------------------------
+    // State accessors 
 
     // Castling availability flags — revoked permanently once the relevant
     // piece leaves its starting square

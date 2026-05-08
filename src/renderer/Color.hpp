@@ -2,7 +2,6 @@
 
 #include <string_view>
 
-// =============================================================================
 //  COLOR.HPP — ANSI True-Color Escape Codes
 //
 //  All terminal styling in the project flows through this file.
@@ -19,9 +18,8 @@
 //  The FG / BG macros are kept for the one place they're still needed —
 //  building escape sequences from runtime RGB values in the intro animation.
 //  Everything else uses the named constants below.
-// =============================================================================
 
-// -- Text style codes ---------------------------------------------------------
+// Text style codes 
 
 inline constexpr std::string_view RESET = "\033[0m";
 inline constexpr std::string_view BOLD = "\033[1m";
@@ -35,7 +33,6 @@ inline constexpr std::string_view BLINK = "\033[5m";
 #define FG(r, g, b) "\033[38;2;" #r ";" #g ";" #b "m"
 #define BG(r, g, b) "\033[48;2;" #r ";" #g ";" #b "m"
 
-// =============================================================================
 //  Classic Wood & Ivory Theme
 //
 //  Palette inspired by traditional tournament sets: warm parchment on light
@@ -44,21 +41,20 @@ inline constexpr std::string_view BLINK = "\033[5m";
 //
 //  Highlights are intentionally muted — they need to be readable without
 //  pulling the eye away from the pieces themselves.
-// =============================================================================
 
-// -- Board squares ------------------------------------------------------------
+// Board squares 
 
 inline constexpr std::string_view CLR_LIGHT_SQ = "\033[48;2;210;190;150m"; // parchment ivory
 inline constexpr std::string_view CLR_DARK_SQ = "\033[48;2;135;88;45m"; // aged mahogany
 
-// -- Square highlights --------------------------------------------------------
+// Square highlights
 
 inline constexpr std::string_view CLR_HL_SQ     = "\033[48;2;168;195;130m"; // selected — soft sage
 inline constexpr std::string_view CLR_HL_MOVE   = "\033[48;2;205;185;100m"; // valid target — warm amber
 inline constexpr std::string_view CLR_HL_CHECK  = "\033[48;2;185;75;65m";   // king in check — terracotta
 inline constexpr std::string_view CLR_HL_LAST   = "\033[48;2;145;170;185m"; // last move — dusty slate
 
-// -- Piece foreground colors --------------------------------------------------
+// Piece foreground colors 
 //  Both sides use the same outline glyphs (♙♘♗♖♕♔).
 //  Color alone distinguishes them, which keeps rendering consistent
 //  across terminals that vary in how they handle filled Unicode chess glyphs.
@@ -66,7 +62,7 @@ inline constexpr std::string_view CLR_HL_LAST   = "\033[48;2;145;170;185m"; // l
 inline constexpr std::string_view CLR_W_PIECE   = "\033[38;2;250;245;225m"; // warm ivory white
 inline constexpr std::string_view CLR_B_PIECE   = "\033[38;2;90;52;18m";    // warm dark brown
 
-// -- UI chrome ----------------------------------------------------------------
+// UI chrome 
 //  Everything stays within the warm walnut palette.
 //  No cool grays, no neon accents
 

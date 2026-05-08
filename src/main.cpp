@@ -7,7 +7,6 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-// =============================================================================
 //  MAIN
 //
 //  Detects whether stdin is a pipe or a terminal and branches accordingly.
@@ -21,7 +20,6 @@
 //    Plays the animated intro and runs the interactive game menu.
 //
 //  Detection: fstat on STDIN_FILENO — S_ISFIFO or S_ISREG means pipe/file.
-// =============================================================================
 
 static bool stdinIsPipe() {
     struct stat st;

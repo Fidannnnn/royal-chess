@@ -1,25 +1,22 @@
 #include "GameState.hpp"
 
-// =============================================================================
 //  GAMESTATE  —  Implementation
-// =============================================================================
 
 GameState::GameState() {
     m_board.reset();
 }
 
-// -- Board access -------------------------------------------------------------
-
+// Board access 
 const Board& GameState::board() const { return m_board; }
 Board&       GameState::board()       { return m_board; }
 
-// -- Turn state ---------------------------------------------------------------
+// Turn state 
 
 bool GameState::isWhiteTurn()   const { return m_whiteTurn; }
 int  GameState::fullMoveNum()   const { return m_fullMoveNum; }
 int  GameState::halfMoveClock() const { return m_halfMoveClock; }
 
-// -- Move application ---------------------------------------------------------
+// Move application 
 
 GameState GameState::applyMove(const Move& m) const {
     GameState next;
@@ -48,7 +45,7 @@ GameState GameState::applyMove(const Move& m) const {
     return next;
 }
 
-// -- Move history -------------------------------------------------------------
+// Move history
 
 void GameState::pushHistory(const Move& m) {
     m_moveHistory.push_back(m);

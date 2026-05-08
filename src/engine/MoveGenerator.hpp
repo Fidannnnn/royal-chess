@@ -4,7 +4,6 @@
 #include "../core/Move.hpp"
 #include <vector>
 
-// =============================================================================
 //  MOVEGENERATOR
 //
 //  Stateless move generation — takes a GameState and produces Move lists.
@@ -22,7 +21,6 @@
 //  Castling gets special treatment in legalMoves(): the king must not be in
 //  check before, during (intermediate square), or after castling. This cannot
 //  be detected with a simple post-move check so it is handled explicitly.
-// =============================================================================
 
 class MoveGenerator {
 public:

@@ -3,9 +3,7 @@
 #include <cassert>
 #include <cstdlib>  // abs()
 
-// =============================================================================
 //  BOARD  —  Implementation
-// =============================================================================
 
 Board::Board() {
     for (int r = 0; r < 8; r++)
@@ -38,7 +36,7 @@ void Board::reset() {
     m_lastFromR = m_lastFromC = m_lastToR = m_lastToC = -1;
 }
 
-// -- Square access ------------------------------------------------------------
+// Square access 
 
 Piece Board::at(int row, int col) const {
     assert(inBounds(row, col));
@@ -54,8 +52,7 @@ bool Board::inBounds(int row, int col) {
     return row >= 0 && row < 8 && col >= 0 && col < 8;
 }
 
-// -- Move application ---------------------------------------------------------
-
+//  Move application 
 Board Board::applyMove(const Move& m) const {
     Board next = *this;  // copy the current board — the AI relies on this
 
@@ -101,7 +98,7 @@ Board Board::applyMove(const Move& m) const {
     return next;
 }
 
-// -- Private helper -----------------------------------------------------------
+// Private helper 
 
 void Board::revokeCastlingRights(Piece moving, int fromR, int fromC) {
     // King moves — lose both castling rights for that side immediately
@@ -119,7 +116,7 @@ void Board::revokeCastlingRights(Piece moving, int fromR, int fromC) {
     }
 }
 
-// -- State accessors ----------------------------------------------------------
+// State accessors 
 
 bool Board::canCastleKingside (bool white) const { return white ? m_wCastleK : m_bCastleK; }
 bool Board::canCastleQueenside(bool white) const { return white ? m_wCastleQ : m_bCastleQ; }
