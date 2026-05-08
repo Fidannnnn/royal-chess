@@ -1,0 +1,25 @@
+[0;33m> data/4-leg-mat-1.txt[0m
+,,,,,,,bQ,,,,,,wK,,wP,wP,,,,,,,,,,wB,,,,,,,,,,,wP,,,,,bB,,,bP,wP,wQ,bP,bP,bP,,,,,,,,,,bR,,,bK, 1-0
+  -> [0;32mreference position: OK[0m
+  -> [0;32mreference result: OK[0m
+  -> [0m(exit code=0)
+[0;33m> data/4-leg-mat-berger.txt[0m
+wR,wN,wB,,wK,,wN,wR,wP,wP,wP,wP,,wP,wP,wP,,,,,,,,,,,wB,,wP,,,,,,bB,,bP,,,,,,bN,,,,,,bP,bP,bP,bP,,wQ,bP,bP,bR,,bB,bQ,bK,,bN,bR, 1-0
+  -> [0;32mreference position: OK[0m
+  -> [0;32mreference result: OK[0m
+  -> [0m(exit code=0)
+[0;33m> data/4-leg-mat-decouv.txt[0m
+wR,wN,wB,,wK,,wN,wR,wP,wP,wP,wP,,wP,wP,wP,,,,,,,,,,,,,wP,,,,,,,,bP,,,,,,,,,,wB,,bP,bP,bP,bP,,wQ,bB,bP,bR,bN,bB,bQ,,,bK,bR, 1-0
+  -> [0;32mreference position: OK[0m
+  -> [0;32mreference result: OK[0m
+  -> [0m(exit code=0)
+[0;33m> data/4-leg-mat-parade.txt[0m
+wR,,,,wK,,wN,wR,wP,wP,wP,,,wP,wP,wP,,,,,,,,,,,wB,,wP,,,,,,bP,,,,,,bP,,bN,,,,bP,,,bP,bQ,bP,bN,wQ,,bP,,bR,bB,,,bK,,bR, 1-0
+  -> [0;32mreference position: OK[0m
+  -> [0;32mreference result: OK[0m
+  -> [0m(exit code=0)
+[0;33m> data/4-leg-pat.txt[0m
+,,,,,,,,,,,,,,,,,,,,,wP,,wK,,,,wP,,,wP,,wP,,,,,wP,,wP,bP,,,,,bP,,bP,,,,wR,,,bP,bK,,wQ,,,,,,, 1/2-1/2
+  -> [0;32mreference position: OK[0m
+  -> [0;32mreference result: OK[0m
+  -> [0m(exit code=0)

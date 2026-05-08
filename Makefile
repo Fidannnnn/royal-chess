@@ -1,50 +1,38 @@
-# =============================================================================
-#  Royal Chess — Makefile
-#
-#  Targets:
-#    make          — build the chess binary (default)
-#    make clean    — remove all build artifacts
-#    make run      — build and run immediately
-#
-#  The build uses a separate object directory (build/) so source tree
-#  stays clean. Each .cpp gets its own .o; the final link step collects them.
-# =============================================================================
-
 CXX      := g++
 CXXFLAGS := -std=c++17 -Wall -Wextra -O2
 TARGET   := chess
 BUILD    := build
 SRC      := src
 
-# Collect every .cpp under src/ recursively
-SRCS := $(shell find $(SRC) -name "*.cpp")
+# All .cpp files under src/ plus PipeMode.cpp at the project root
+SRCS := $(shell find $(SRC) -name "*.cpp") PipeMode.cpp
 
-# Mirror the source tree under build/ for object files
-OBJS := $(patsubst $(SRC)/%.cpp, $(BUILD)/%.o, $(SRCS))
+OBJS := $(patsubst $(SRC)/%.cpp, $(BUILD)/%.o, $(filter $(SRC)/%, $(SRCS))) \
+        $(BUILD)/PipeMode.o
 
-# Default target
 .PHONY: all
 all: $(TARGET)
 
-# Link
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 	@echo ""
 	@echo "  ♔  Build complete — run with: ./$(TARGET)"
 	@echo ""
 
-# Compile each source file, creating subdirectories as needed
 $(BUILD)/%.o: $(SRC)/%.cpp
 	@mkdir -p $(dir $@)
-	$(CXX) $(CXXFLAGS) -I$(SRC) -c -o $@ $<
+	$(CXX) $(CXXFLAGS) -I$(SRC) -I. -c -o $@ $<
 
-# Remove all build artifacts
+# Rule for PipeMode.cpp at the root
+$(BUILD)/PipeMode.o: PipeMode.cpp
+	@mkdir -p $(BUILD)
+	$(CXX) $(CXXFLAGS) -I$(SRC) -I. -c -o $@ $<
+
 .PHONY: clean
 clean:
 	rm -rf $(BUILD) $(TARGET)
 	@echo "  Cleaned."
 
-# Build and run in one step
 .PHONY: run
 run: all
 	./$(TARGET)
