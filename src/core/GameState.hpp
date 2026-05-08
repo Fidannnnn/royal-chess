@@ -32,7 +32,7 @@
 class GameState {
 public:
     // Constructs a GameState with the board at starting position and
-    // white to move. Call this once at the beginning of each game
+    // white to move. Call this once at the beginning of each game.
     GameState();
 
     // -- Board access ---------------------------------------------------------
@@ -41,7 +41,7 @@ public:
     const Board& board() const;
 
     // Mutable access — used by the Game loop to update the live state.
-    // The AI and MoveGenerator only ever receive const references
+    // The AI and MoveGenerator only ever receive const references.
     Board& board();
 
     // -- Turn state -----------------------------------------------------------
@@ -49,13 +49,13 @@ public:
     bool isWhiteTurn() const;
 
     // Full-move number — starts at 1, increments after black's move
-    int fulMoveNum() const;
+    int fullMoveNum() const;
 
     // Half-move clock — moves since the last capture or pawn push.
-    // Currently tracked but not enforced (50-move rule is not implemented)
+    // Currently tracked but not enforced (50-move rule is not implemented).
     int halfMoveClock() const;
 
-     // -- Move application -----------------------------------------------------
+    // -- Move application -----------------------------------------------------
 
     /*
      * Returns a new GameState with the move applied.
@@ -69,7 +69,7 @@ public:
      * The Game loop appends to history separately after calling this.
      */
     GameState applyMove(const Move& m) const;
-    
+
     // -- Move history ---------------------------------------------------------
     // Only used by the live game state — never populated during AI search.
 
@@ -78,9 +78,9 @@ public:
 
 private:
     Board m_board;
-    bool m_whiteTurn = true;
-    int m_fullMoveNum = 1;   // starts at 1, increment
-    int m_halfMoveClock = 0; // reset to 0 after a pawn move or capture, otherwise incremented by 1
+    bool  m_whiteTurn    = true;
+    int   m_fullMoveNum  = 1;
+    int   m_halfMoveClock = 0;
 
     std::vector<Move> m_moveHistory;
 };

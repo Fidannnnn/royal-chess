@@ -1,16 +1,16 @@
 #include "Board.hpp"
 
 #include <cassert>
-#include <cstdlib>
+#include <cstdlib>  // abs()
 
 // =============================================================================
 //  BOARD  —  Implementation
 // =============================================================================
 
 Board::Board() {
-    for (int row = 0; row < 8; row++) 
-        for (int col = 0; col < 8; col++) 
-            m_squares[row][col] = EMPTY;
+    for (int r = 0; r < 8; r++)
+        for (int c = 0; c < 8; c++)
+            m_squares[r][c] = EMPTY;
 }
 
 void Board::reset() {
@@ -51,11 +51,13 @@ void Board::set(int row, int col, Piece p) {
 }
 
 bool Board::inBounds(int row, int col) {
-    return 0 <= row && row < 8 && 0 <= col && col < 8;
+    return row >= 0 && row < 8 && col >= 0 && col < 8;
 }
 
+// -- Move application ---------------------------------------------------------
+
 Board Board::applyMove(const Move& m) const {
-    Board newBoard = *this; // copy the current board to modify and return - the AI relies on this
+    Board next = *this;  // copy the current board — the AI relies on this
 
     Piece moving = next.m_squares[m.fromR][m.fromC];
 
@@ -67,10 +69,10 @@ Board Board::applyMove(const Move& m) const {
     // Kingside: rook travels from h-file (col 7) to f-file (col 5)
     // Queenside: rook travels from a-file (col 0) to d-file (col 3)
     if (m.isCastle) {
-        if (m.toC == 6) { // kingside
+        if (m.toC == 6) {
             next.m_squares[m.toR][5] = next.m_squares[m.toR][7];
             next.m_squares[m.toR][7] = EMPTY;
-        } else {          // queenside
+        } else {
             next.m_squares[m.toR][3] = next.m_squares[m.toR][0];
             next.m_squares[m.toR][0] = EMPTY;
         }
@@ -92,11 +94,9 @@ Board Board::applyMove(const Move& m) const {
         next.m_enPassantCol = m.fromC;
     }
 
-    // Record last move coordinates so the renderer can highlight them
-    next.m_lastFromR = m.fromR;
-    next.m_lastFromC = m.fromC;
-    next.m_lastToR   = m.toR;
-    next.m_lastToC   = m.toC;
+    // Record last-move coordinates so the renderer can highlight them
+    next.m_lastFromR = m.fromR;  next.m_lastFromC = m.fromC;
+    next.m_lastToR   = m.toR;    next.m_lastToC   = m.toC;
 
     return next;
 }
@@ -118,7 +118,6 @@ void Board::revokeCastlingRights(Piece moving, int fromR, int fromC) {
         if (fromR == 0 && fromC == 0) m_bCastleQ = false;
     }
 }
-
 
 // -- State accessors ----------------------------------------------------------
 

@@ -1,6 +1,5 @@
 #include "GameState.hpp"
 
-
 // =============================================================================
 //  GAMESTATE  —  Implementation
 // =============================================================================
@@ -12,18 +11,13 @@ GameState::GameState() {
 // -- Board access -------------------------------------------------------------
 
 const Board& GameState::board() const { return m_board; }
-Board& GameState::board() { return m_board; }
+Board&       GameState::board()       { return m_board; }
 
 // -- Turn state ---------------------------------------------------------------
 
-bool GameState::isWhiteTurn() const {
-    return m_whiteTurn; }
-
-int GameState::fulMoveNum() const {
-    return m_fullMoveNum; }
-
-int GameState::halfMoveClock() const {
-    return m_halfMoveClock; }   
+bool GameState::isWhiteTurn()   const { return m_whiteTurn; }
+int  GameState::fullMoveNum()   const { return m_fullMoveNum; }
+int  GameState::halfMoveClock() const { return m_halfMoveClock; }
 
 // -- Move application ---------------------------------------------------------
 
