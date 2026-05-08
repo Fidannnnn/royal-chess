@@ -22,7 +22,7 @@ A fully functional chеss enginе that runs in your tеrminal — built frоm sc
 
 ### Complete FIDE Chess Ruleset
 
-Every stanаard chess rule is enforced:
+Every standard chess rule is enforced as follows:
 
 | Feature | Details |
 |---|---|
